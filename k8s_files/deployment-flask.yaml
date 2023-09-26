@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudyeti-flask-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudyeti-flask
+  template:
+    metadata:
+      labels:
+        app: cloudyeti-flask
+    spec:
+      containers:
+        - name: cloudyeti-flask
+          image: rbngtm1/cloudyeti-flask
+          ports:
+            - containerPort: 5000
